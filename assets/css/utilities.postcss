@@ -1,0 +1,26 @@
+@layer utilities {
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-card {
+    @apply bg-whiteColor rounded-3xl p-6;
+  }
+
+  /* Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-1;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded bg-Tprimary-600;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-secondary-100;
+  }
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}

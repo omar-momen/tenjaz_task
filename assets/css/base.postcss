@@ -1,0 +1,21 @@
+@layer base {
+  html {
+    @apply overflow-x-hidden;
+  }
+  body {
+    @apply bg-bodyBg text-darkColor dark:text-whiteColor dark:bg-darkColor font-Nunito overflow-x-hidden;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply font-Nunito;
+    }
+
+    * img {
+      @apply h-[revert-layer] max-w-[unset] max-h-[unset];
+    }
+  }
+}
