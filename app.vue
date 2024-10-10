@@ -33,11 +33,11 @@ useHead({
     {
       name: "description",
       content:
-        "Shop online in Egypt with Mazzadyand enjoy low prices, fast shipping, cash on delivery and easy returns on millions of items. Explore deals on electronics, fashion, groceries, home …",
+        "نحن شركة تقنية سعودية متخصصة فى تقديم حلول مبتكرة فى مجال البرمجة وتطوير المواقع والتطبيقات الإلكترونية. نهدف إلى تقديم خدمات متكاملة لعملائنا من خلال الجمع بين الإبداع التقني والجودة العالية لتلبية احتياجات السوق المتغيرة باستمرار.",
     },
     {
       name: "author",
-      content: "Mazzady",
+      content: "Tenjaz",
     },
     {
       name: "keywords",
@@ -45,46 +45,46 @@ useHead({
     },
     {
       property: "og:title",
-      content: "Mazzady",
+      content: "Tenjaz",
     },
     {
       property: "og:descreption",
       content:
-        "Shop online in Egypt with Amazon.eg and enjoy low prices, fast shipping, cash on delivery and easy returns on millions of items. Explore deals on electronics, fashion, groceries, home …",
+        "نحن شركة تقنية سعودية متخصصة فى تقديم حلول مبتكرة فى مجال البرمجة وتطوير المواقع والتطبيقات الإلكترونية. نهدف إلى تقديم خدمات متكاملة لعملائنا من خلال الجمع بين الإبداع التقني والجودة العالية لتلبية احتياجات السوق المتغيرة باستمرار.",
     },
     {
       property: "og:type",
       content: "website",
     },
-    {
-      property: "og:image",
-      content: "/images/logo.png",
-    },
+    // {
+    //   property: "og:image",
+    //   content: "/images/logo.png",
+    // },
     {
       property: "og:url",
-      content: "https://mazzady-task.vercel.app/",
+      content: "https://tenjaz-task.vercel.app/",
     },
 
     {
       property: "twitter:title",
-      content: "Mazzady",
+      content: "Tenjaz",
     },
     {
       property: "twitter:descreption",
       content:
-        "Shop online in Egypt with Amazon.eg and enjoy low prices, fast shipping, cash on delivery and easy returns on millions of items. Explore deals on electronics, fashion, groceries, home …",
+        "نحن شركة تقنية سعودية متخصصة فى تقديم حلول مبتكرة فى مجال البرمجة وتطوير المواقع والتطبيقات الإلكترونية. نهدف إلى تقديم خدمات متكاملة لعملائنا من خلال الجمع بين الإبداع التقني والجودة العالية لتلبية احتياجات السوق المتغيرة باستمرار.",
     },
     {
       property: "twitter:type",
       content: "website",
     },
-    {
-      property: "twitter:image",
-      content: "/images/logo.png",
-    },
+    // {
+    //   property: "twitter:image",
+    //   content: "/images/logo.png",
+    // },
     {
       property: "twitter:url",
-      content: "https://mazzady-task.vercel.app/",
+      content: "https://tenjaz-task.vercel.app/",
     },
   ],
 });
