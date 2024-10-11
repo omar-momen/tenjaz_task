@@ -17,7 +17,7 @@
       <aside
         class="bg-whiteColor pt-10 fixed lg:hidden group-[.sidebar-minimized]:start-0 -start-[250px] h-full w-[250px] transition-all duration-[800ms] z-[999]"
       >
-        <UVerticalNavigation :links="sideBarlinks" />
+        <UVerticalNavigation @click="toggleSidebar" :links="sideBarlinks" />
 
         <div
           class="lg:hidden absolute -end-8 top-1/2 -translate-y-1/2 z-50"
@@ -43,12 +43,6 @@ const toggleSidebar = () => {
 };
 
 const sideBarlinks = [
-  {
-    label: "Profile",
-    avatar: {
-      src: "https://avatars.githubusercontent.com/u/739984?v=4",
-    },
-  },
   {
     label: "Home",
     icon: "i-heroicons-chart-bar",

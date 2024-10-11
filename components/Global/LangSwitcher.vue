@@ -1,7 +1,11 @@
 <template>
-  <div @click="chnageLang" class="items-center cursor-pointer">
+  <div @click="chnageLang" class="group/all items-center cursor-pointer">
     <span class="pe-3 border-e-2 border-gray-300">
-      <Icon size="24" name="mynaui:globe" />
+      <Icon
+        class="group-hover/all:animate-bounce"
+        size="24"
+        name="mynaui:globe"
+      />
     </span>
     <span class="ps-3 text-lg font-bold uppercase"> {{ lang }} </span>
   </div>

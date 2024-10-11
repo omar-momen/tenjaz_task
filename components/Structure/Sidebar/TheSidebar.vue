@@ -9,7 +9,7 @@
         @toggleSidebar="toggleSidebar"
       />
     </div>
-    <UVerticalNavigation :links="links" />
+    <UVerticalNavigation @click="toggleSidebar" :links="links" />
   </nav>
 </template>
 
