@@ -1,7 +1,7 @@
 <template>
   <UButton
     @click="emits('toggleSidebar')"
-    class="p-0 rounded-full bg-Tprimary-500 w-10 h-10 flex-center"
+    class="p-0 rounded-full bg-Tprimary-500 w-10 h-10 flex-center transition-all"
     aria-label="close"
   >
     <div

@@ -19,17 +19,10 @@
           class="grow"
         />
         <StatisticsCard
-          title="Total Users"
-          value="100"
-          icon="i-heroicons-users"
-          bgColor="primary"
-          class="grow"
-        />
-        <StatisticsCard
-          title="Active Requests"
-          value="34"
-          icon="icon-park-outline:pull-requests"
-          bgColor="secondary"
+          title="Total Orders"
+          value="47"
+          icon="i-heroicons-shopping-bag"
+          bgColor="red"
           class="grow"
         />
       </div>

@@ -1,20 +1,23 @@
 <template>
   <nav
-    class="group shadow-lg bg-whiteColor fixed z-[5] start-0 top-0 h-full w-[var(--max-sidebar-width)] lg:transition-all lg:duration-[800ms] pt-[var(--navbar-height)]"
+    class="group shadow-lg bg-whiteColor fixed z-[5] start-0 top-0 h-full w-[var(--max-sidebar-width)] max-w-[var(--max-sidebar-width)] overflow-x-hidden lg:transition-all lg:duration-[800ms] pt-[var(--navbar-height)]"
     :class="{ 'nav-minimized': isMinimized }"
   >
-    <div class="absolute top-3 end-3 group-[.nav-minimized]:end-4">
+    <div class="absolute top-3 end-3 group-[.nav-minimized]:end-3">
       <SidebarMenuIcon
         :isMinimized="isMinimized"
         @toggleSidebar="toggleSidebar"
       />
     </div>
-    <UVerticalNavigation @click="toggleSidebar" :links="links" />
+    <SideBarContent
+      @closeSideBar="emits('closeSideBar')"
+      :isMinimized="isMinimized"
+    />
   </nav>
 </template>
 
 <script setup lang="ts">
-const emits = defineEmits(["toggleSidebar"]);
+const emits = defineEmits(["toggleSidebar", "closeSideBar"]);
 const props = defineProps<{
   isMinimized: boolean;
   links: [];

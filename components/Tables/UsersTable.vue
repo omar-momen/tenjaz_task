@@ -90,18 +90,33 @@ const item_id_to_delete = ref<number | null>(null);
 const delete_user_dialog = ref(false);
 const deleteUser = async () => {
   delete_loading.value = true;
-  await useNuxtApp().$axios(`/api/fake-users`, {
-    params: { id: item_id_to_delete.value },
-    method: "DELETE",
-  });
 
-  // await refresh();
-  users.value = users.value?.filter(
-    (user: User) => user.id !== item_id_to_delete.value
-  );
-  delete_loading.value = false;
+  try {
+    await useNuxtApp().$axios(`/api/fake-users`, {
+      params: { id: item_id_to_delete.value },
+      method: "DELETE",
+    });
+
+    // await refresh();
+    users.value = users.value?.filter(
+      (user: User) => user.id !== item_id_to_delete.value
+    );
+    const message = "User deleted successfully";
+    toast.add({
+      color: "green",
+      id: "delete_success",
+      title: message,
+    });
+  } catch (error) {
+    toast.add({
+      color: "red",
+      id: "delete_failed",
+      title: getError(error),
+    });
+  }
 
   delete_user_dialog.value = false;
+  delete_loading.value = false;
   item_id_to_delete.value = null;
 };
 
@@ -146,7 +161,7 @@ async function onError(event: { errors: { id: string }[] }) {
 }
 
 // ====== Save Form
-// const toast = useToast();
+const toast = useToast();
 const save_user_loading = ref(false);
 const saveUser = async () => {
   save_user_loading.value = true;
@@ -158,29 +173,63 @@ const saveUser = async () => {
   };
 
   if (edit_mode.value) {
-    await useNuxtApp().$axios(`/api/fake-users`, {
-      method: "PUT",
-      data: {
-        id: current_user.value?.id,
-        ...user,
-      },
-    });
+    try {
+      await useNuxtApp().$axios(`/api/fake-users`, {
+        method: "PUT",
+        data: {
+          id: current_user.value?.id,
+          ...user,
+        },
+      });
 
-    // await refresh();
-    let index: number = users.value?.findIndex(
-      (item: User) => item.id === current_user.value?.id
-    );
-    if (index !== -1) {
-      users.value[index] = { id: current_user.value?.id, ...user };
+      // await refresh();
+      let index: number = users.value?.findIndex(
+        (item: User) => item.id === current_user.value?.id
+      );
+      if (index !== -1) {
+        users.value[index] = { id: current_user.value?.id, ...user };
+      }
+      const message = "User updated successfully";
+      toast.add({
+        color: "green",
+        id: "edit_success",
+        title: message,
+      });
+    } catch (error) {
+      toast.add({
+        color: "red",
+        id: "add_failed",
+        title: getError(error),
+      });
+      save_user_loading.value = false;
+
+      return 0;
     }
   } else {
-    await useNuxtApp().$axios("/api/fake-users", {
-      method: "POST",
-      data: user,
-    });
+    try {
+      await useNuxtApp().$axios("/api/fake-users", {
+        method: "POST",
+        data: user,
+      });
 
-    // await refresh();
-    users.value?.push({ id: users.value?.length + 1, ...user });
+      // await refresh();
+      users.value?.push({ id: users.value?.length + 1, ...user });
+
+      const message = "User added successfully";
+      toast.add({
+        color: "green",
+        id: "add_success",
+        title: message,
+      });
+    } catch (error) {
+      toast.add({
+        color: "red",
+        id: "edit_failed",
+        title: getError(error),
+      });
+      save_user_loading.value = false;
+      return 0;
+    }
   }
 
   save_user_loading.value = false;
@@ -212,6 +261,7 @@ const saveUser = async () => {
             Users
           </h2>
           <UButton
+            class="transition-all duration-500"
             color="primary"
             variant="solid"
             label="Add User"
@@ -344,7 +394,12 @@ const saveUser = async () => {
           </UFormGroup>
 
           <div class="flex items-center justify-cebter pt-5">
-            <UButton :loading="save_user_loading" label="Save" type="submit" />
+            <UButton
+              :loading="save_user_loading"
+              label="Save"
+              type="submit"
+              class="transition-all duration-500"
+            />
           </div>
         </UForm>
       </UCard>
@@ -377,11 +432,13 @@ const saveUser = async () => {
             @click="deleteUser"
             label="Delete"
             :loading="delete_loading"
+            class="transition-all duration-700"
           />
           <UButton
             @click="delete_user_dialog = false"
             label="Cancel"
             color="gray"
+            class="transition-all duration-500"
           />
         </div>
       </UCard>
